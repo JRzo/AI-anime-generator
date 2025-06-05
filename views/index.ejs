@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <!-- Font-styles -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap" rel="stylesheet">
+  <!-- Font-styles end -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
+  <title>AI Anime Selector</title>
+</head>
+<body>
+   <div class="navbar bg-base-100 shadow-sm">
+  <div class="navbar-start">
+  </div>
+   <div class="navbar-center">
+      <h2 class="text-h2">AI <span class="animeSpan">Anime</span> Selector</h2>
+      
+   </div>
+   <div class="navbar-end">
+    <!-- Settings start -->
+    <form action="/settings" method="get">
+      <button class="btn btn-ghost btn-circle" href="/settings" method="get">
+   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z" />
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+   </svg>
+   </button>
+    </form>
+    <!-- Settings end -->
+     
+
+    <!-- AI template gen -->
+    <form action="/aiGen">
+      <button class="btn btn-ghost btn-circle" aria-label="AI Robot">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+   </button>
+    </form>
+
+   <!-- ai template end -->
+
+   </div>
+   </div>
+
+<!-- End of the nav -->
+ <!-- Corusell -->
+<div class="container">
+  <div>
+    <div class="content">
+      <h2>Dragon Ball</h2>
+      <span>The franchise follows the adventures of Son Goku, a young martial artist with exceptional strength, and his friends as they search for the Dragon Balls and battle powerful villains. </span>
+    </div>
+  </div>
+  <div>
+    <div class="content">
+      <h2>Attack on Titan</h2>
+      <span>When man-eating Titans first appeared 100 years ago, humans found safety behind massive walls that stopped the giants in their tracks</span>
+    </div>
+  </div>
+  <div>
+    <div class="content">
+      <h2>Demon Slayer: Kimetsu no Yaiba Manga series</h2>
+      <span>Tanjiro sets out to become a demon slayer to avenge his family and cure his sister.A family is attacked by demons and only two members survive </span>
+    </div>
+  </div>
+  <div>
+    <div class="content">
+      <h2>Solo Leveling</h2>
+      <span>"Solo Leveling" follows Sung Jin-woo, a weak hunter in a world where humans with magical abilities, known as hunters, battle monsters in dungeons.</span>
+    </div>
+  </div>
+</div>
+ <!-- text input -->
+
+
+  <form action="/api/gen" method="post">
+       <input
+        type="text" 
+        placeholder="What's your top five anime's?"
+        class="input input-ghost" 
+        name="userResponse"
+        id="answers" 
+        required
+         />
+      <div class="button-container">
+  <button type='submit' class="btn-wide" id="button" >Enter</button>
+
+  </form>
+
+
+<!-- AI Script -->
+ <script src="//unpkg.com/brain.js"></script>
+ <script src="/js/ai.js"></script>
+</body>
+</html>

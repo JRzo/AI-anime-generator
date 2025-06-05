@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="css/settings.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!-- Nav bar start -->
+    <div class="navbar bg-base-100 shadow-sm">
+    <div class="navbar-start">
+        <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+        </div>
+        </div>
+        <form action="/" method="get">
+            <button>
+                <img src="img/Gemini_Generated_Image_6lsml26lsml26lsm.png" alt="Chat Image Placeholder" class="rounded-full" width="40px">
+            </button>
+        </form>
+    </div>
+    <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+        <li><a>Sites</a></li>
+        <li>
+            <details>
+            <summary>Profile</summary>
+            <ul class="p-2">
+                <li><a>Login</a></li>
+                <li><a>Sign-up</a></li>
+            </ul>
+            </details>
+        </li>
+        <li><a>History</a></li>
+        </ul>
+    </div>
+    <div class="navbar-end">
+            <form action="/aiGen">
+            <button class="btn btn-ghost btn-circle" aria-label="AI Robot">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+            </button>
+            </form>
+    </div>
+    </div>
+    <!-- Nav bar end -->
+</body>
+
+<%- include('partials/footer') -%>
