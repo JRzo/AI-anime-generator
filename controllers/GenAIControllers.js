@@ -1,34 +1,33 @@
-
 let OpenAI = require('openai')
 module.exports ={
+    // For the template
+    aigenTemplate: (req, res) => {
+        res.render("aigenTemplate.ejs")
+    },
     genAI: async (req, res) =>{
-
-        // Render page
-
-        // The ai data will be here
+        let value = req.body['userResponse']
         try{
-            let value = req.body['userResponse']
-        // Will eadd each values
-        const openai = new OpenAI({
-        apiKey: "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",
-        });
+            const openai = new OpenAI({
+                apiKey: process.env.API_KEY,
+            });
 
-        const completion = openai.chat.completions.create({
-        model: "gpt-4o-mini",
-        store: true,
-        messages: [
-            {"role": "assistant", "content": "What animes should I watch if I have watched this anime's: " + value + "Limit them to 10. Provide actual images links that can be used (deep search) and a description of why should I watch the anime. Please only provide the results as a JSON file that can be used as JSON file. Just JSON style"},
-        ],
-        });
+            const completion = await openai.chat.completions.create({ // Use await directly here
+                model: "gpt-4o-mini",
+                response_format: { type: "json_object" },
+                // 'store: true' is not a valid parameter for chat completions. You might want to remove it.
+                messages: [
+                    {"role": "assistant", "content": "I'm looking for anime recommendations similar to " + value +"Please suggest up to 10 titles. For each recommendation, include the anime's name, an image URL, and a brief description explaining why I should watch it. Format your response as a JSON array like this: [ { \"name\": \"Anime Name\", \"image\": \"https://example.com/image.png\", \"description\": \"Why you should watch it.\" } ] Do not include any additional comments before or after the recommendations."},
+                ],
+            });
 
-        completion.then(async (result) => {
-            let response =  await result.choices[0].message.content
-            res.render("genAI.ejs",{response:response})   
-        });
+            let response = await completion.choices[0].message.content;
+
+            res.render("genAI.ejs",{response:response}); // Only render after you have the response
         }
         catch(error){
-            console.log(error)
+            console.error("Error in genAI:", error); // Use console.error for errors
+            // You should also send an error response to the client
+            res.status(500).render("error.ejs", { message: "An error occurred while fetching AI response." });
         }
-        
     }
 }

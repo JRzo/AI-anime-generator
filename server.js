@@ -19,6 +19,16 @@ require("dotenv").config({ path: "./config/.env" });
 
 connectDB()
 
+app.use(
+  session({
+    secret: "anime",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {secure: false},
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+);
+
 
 
 // The middleware
@@ -29,14 +39,6 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json())
 app.use(logger("dev"));
 
-app.use(
-  session({
-    secret: "anime",
-    resave: false,
-    saveUninitialized: false,
-    store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  })
-);
 
 //Use flash messages for errors, info, ect...
 app.use(flash());
