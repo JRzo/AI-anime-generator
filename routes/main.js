@@ -15,7 +15,10 @@ router.get("/signup", profileControllers.getSignup);
 router.post("/signup", profileControllers.postSignup);
 router.get('/settings', mainController.getSettings);
 
-// Sites for tiktok
+// Sites for anime
 router.get('/sites',  mainController.getSites)
+
+// the historyu site
+router.get('/history', mainController.getHistory)
 
 module.exports =  router

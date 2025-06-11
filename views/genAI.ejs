@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Anime Recommendations</title>
-    <link rel="stylesheet" href="css/genAI.css">
+    <link rel="stylesheet" href="/css/genAI.css">
 </head>
 <body>
     <div class="loading-bar">
       <div class="progress-fill"></div>
     </div>
 
-    <h2> <%=response.recommendations[0].name %></h2> 
+    <h2> Here are your Anime Recommendations!</h2>
+
+
+
     <div class="carousel" mask>
         <!-- The ejs will go here -->
          <% for (let i = 0; i < response.recommendations.length; i++) { %>
             <article>
-                <img src= "<%= response.recommendations[i].image_url%>"  alt="">
+                <img src= "<%= response.recommendations[i].image_url%>"  alt="Anime: <%=response.recommendations[i].name%>  ">
                 <h2> <%=response.recommendations[i].name%> </h2>
                 <div>
                     <p> <%=response.recommendations[i].description%></p>

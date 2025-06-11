@@ -7,4 +7,8 @@ module.exports = {
     getSites: (req, res)=>{
         res.render('sites.ejs')
     }
+    ,
+    getHistory: (req, res) =>{
+        res.render('history.ejs')
+    }
 }
