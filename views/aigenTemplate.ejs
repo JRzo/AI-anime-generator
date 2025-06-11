@@ -4,31 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The top ten Animes</title>
+    <link rel="stylesheet" href="/css/aigenTemp.css">
 </head>
 <body>
+    <h1>
+        Here is the Anime's that <span>We</span> Recommend!
+    </h1>
     <div class="carousel" mask>
-
         <!-- The ejs will go here -->
-	<article>
-		<img src="https://images.pexels.com/photos/635699/pexels-photo-635699.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
-		<h2>The Cross</h2>
-		<div>
-			<p>The Cross is a central symbol of Easter, representing the crucifixion of Jesus Christ and his sacrifice for humanity. It serves as a reminder of suffering, love, and redemption, and is often displayed during Holy Week and Easter Sunday to honor the foundation of Christian faith.</p>
-
-			<a href="#">Read more</a>
-		</div>
-	</article>
-
-	<article>
-		<img src="https://images.pexels.com/photos/7168798/pexels-photo-7168798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="easter eggs">
-		<h2>Easter Eggs</h2>
-		<div>
-			<p>Easter eggs are a colorful symbol of new life and rebirth, often decorated and hidden for festive hunts. The tradition comes from ancient spring rituals and was later adopted into Easter celebrations to represent the resurrection.</p>
-
-			<a href="#">Read more</a>
-		</div>
-	</article>
-
+         <% for (let i = 0; i < template.length; i++) { %>
+            <article>
+                <img src= "<%= template[i].image%>"  alt="">
+                <h2> <%=template[i].name%> </h2>
+                <div>
+                    <p> <%=template[i].description%></p>
+                </div>
+	    </article>
+        <% } %>
     </div>
+        <a href="/" class="text-gray-200 hover:text-black-300 flex justify-center home">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="30" height="30">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+        </svg>
+
+    </a>
+
 </body>
 </html>

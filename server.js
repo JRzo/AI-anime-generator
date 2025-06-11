@@ -2,6 +2,7 @@ const express = require('express')
 const bodyparse = require('body-parser')
 const mongoose = require('mongoose')
 const ejs = require('ejs')
+const passport = require("passport");
 // The app starter
 
 const app = express()
@@ -16,7 +17,7 @@ const logger = require('morgan')
 const mainRoutes = require("./routes/main")
 const apiGenAIRoutes = require('./routes/apiGenAI')
 require("dotenv").config({ path: "./config/.env" });
-
+require('./config/passport')(passport)
 connectDB()
 
 app.use(
@@ -29,6 +30,9 @@ app.use(
   })
 );
 
+app.use(passport.initialize()); //persistent login sessions
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); //use connect-flash for flash messages stored in session
 
 
 // The middleware
@@ -38,10 +42,6 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}));
 app.use(express.json())
 app.use(logger("dev"));
-
-
-//Use flash messages for errors, info, ect...
-app.use(flash());
 
 // the routes
 

@@ -9,7 +9,8 @@
         "ignore": [
           "-webkit-text-size-adjust",
           "-webkit-filter",
-          "user-select"
+          "user-select",
+          "mask-image"
         ]
       }
     ]
