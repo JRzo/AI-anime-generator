@@ -73,7 +73,7 @@ module.exports ={
                     {"role": "assistant", "content": `I'm looking for anime recommendations similar to "${value}".
                     Please suggest up to 10 titles.
                     For each recommendation, include the anime's name, a *well-known and generally stable image URL and please make sure they links work and show up do a deep search (make sure each image! and a brief description explaining why I should watch it.
-                    Focus on providing URLs that are likely to be persistent. 
+                    Focus on providing URLs that are likely to be persistent & the images works to be render on a website. Focus on getting image from google images test it before. 
                     Format your response as a JSON array.
                     Do not include any additional comments before or after the recommendations.`},
                 ],
