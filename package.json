@@ -1,13 +1,18 @@
 {
   "name": "ai-anime-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "AI Anime Generator application",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build:css": "tailwindcss build public/css/tailwind.css -o public/css/style.css"
   },
-  "keywords": [],
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
+  },
+  "keywords": ["ai", "anime", "generator", "express", "node"],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
@@ -16,10 +21,7 @@
     "@google/generative-ai": "^0.24.1",
     "@tailwindcss/cli": "^4.1.8",
     "@tensorflow/tfjs": "^4.22.0",
-    "ai-anime-generator": "file:",
     "axios": "^1.9.0",
-    "bcrypt": "^6.0.0",
-    "body-parse": "^0.1.0",
     "body-parser": "^2.2.0",
     "brain.js": "^2.0.0-beta.24",
     "connect-mongo": "^3.2.0",
@@ -30,19 +32,16 @@
     "mongodb": "^6.17.0",
     "mongoose": "^8.15.1",
     "morgan": "^1.10.0",
-    "node": "^22.16.0",
-    "nodemon": "^3.1.10",
     "openai": "^5.1.0",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "validator": "^13.15.15"
-
   },
-  
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "daisyui": "^5.0.43",
     "postcss": "^8.5.4",
-    "tailwindcss": "^4.1.8"
+    "tailwindcss": "^4.1.8",
+    "nodemon": "^3.1.10" 
   }
 }
